@@ -1,0 +1,34 @@
+# Example terraform.tfvars file
+# Copy this to terraform.tfvars and modify as needed
+
+# Cloud provider choice
+provider_choice = "aws"
+
+# Region for deployment
+region = "us-west-2"
+
+# Cluster configuration
+cluster_size  = 3
+instance_type = {
+  aws   = "t3.medium"
+  azure = "Standard_B2s"
+  gcp   = "e2-medium"
+  local = "medium"
+}
+
+# Environment name
+environment = "hashistack-demo"
+
+# SSH key for instance access
+ssh_key_path = "~/.ssh/id_rsa.pub"
+
+# Security configuration (restrict in production)
+allowed_cidr_blocks = ["0.0.0.0/0"]
+
+# HashiCorp tools to deploy
+enable_vault  = true
+enable_consul = true
+enable_nomad  = true
+
+# GCP specific (uncomment if using GCP)
+# gcp_project_id = "your-gcp-project-id"
